@@ -1,52 +1,35 @@
 @page
+@model ProyectoCiclo3.App.Frontend.Pages.ListUsuarioModel
 @{
 }
  
 <table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Apellido</th>
-      <th scope="col">Dirección</th>
-      <th scope="col">Teléfono</th>
+      <th>#</th>
+      <th >Nombre</th>
+      <th >Apellido</th>
+      <th >Dirección</th>
+      <th >Teléfono</th>
+      <th >Ciudad</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Jose</td>
-      <td>Amado</td>
-      <td>Cra 1 1 1</td>
-      <td>3113173031</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Oscar</td>
-      <td>Fonseca</td>
-      <td>Cra 2 2 2</td>
-      <td>3166524085</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Elisa</td>
-      <td>Ojeda</td>
-      <td>Cra 2 2 2</td>
-      <td>3100000000</td>
-    </tr>
-    <tr>
-      <th scope="row">4</th>
-      <td>Ricardo</td>
-      <td>Posada</td>
-      <td>Cra 2 2 2</td>
-      <td>31500000000</td>
-    </tr>
-    <tr>
-      <th scope="row">5</th>
-      <td>Sandra</td>
-      <td>Santamaría</td>
-      <td>Cra 2 2 2</td>
-      <td>317000000000</td>
-    </tr>
+    @foreach (var usuario in Model.Usuarios)
+    {
+        <tr>
+            <td>@usuario.id</td>
+            <td>@usuario.nombre</td>
+            <td>@usuario.apellidos</td>
+            <td>@usuario.direccion</td>
+            <td>@usuario.telefono</td>
+            <td>@usuario.ciudad</td>
+            <td>
+              <a class="btn btn-info" asp-page="./Details" asp-route-usuarioId="@usuario.id"><i class="fas fa-adjust"></i>Ver</a>
+              <a class="btn btn-info" asp-page="./Edit" asp-route-usuarioId="@usuario.id">Editar</a>
+              <a class="btn btn-danger" href="">Eliminar</a>
+            </td>
+        </tr>
+    }
   </tbody>
 </table>
