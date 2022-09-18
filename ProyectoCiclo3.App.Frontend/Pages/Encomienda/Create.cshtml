@@ -5,24 +5,28 @@
 
 <div class = "text-center">
 <form method = "POST">
-  <label for="descripcion" class="form-label">Descripción:</label>
-  <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Descripcion:">
+  <label asp-for="Encomienda.descripcion" class="form-label">Descripción:</label>
+  <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Descripcion:" required minlength="3" asp-for="Encomienda.descripcion">
+  <span class="text-danger" asp-validation-for="Encomienda.descripcion"></span> <br>
   <label for="peso" class="form-label">Peso:</label>
-  <input type="number" class="form-control" id="peso" name="peso" placeholder="Peso:">
+  <input type="number" class="form-control" id="peso" name="peso" placeholder="Peso:" asp-for="Encomienda.peso">
+  <span class="text-danger" asp-validation-for="Encomienda.descripcion"></span> <br>
   <label for="tipo" class="form-label">Tipo:</label>
-  <select name="tipo" id="tipo" class="form-control">
+  <select name="tipo" id="tipo" class="form-control" asp-for="Encomienda.tipo">
     <option value="">-</option>
     <option value="Ropa">Ropa</option>
     <option value="Alimentos">Alimentos</option>
     <option value="Electronicos">Electrónicos</option>
   </select>
+  <span class="text-danger" asp-validation-for="Encomienda.descripcion"></span> <br>
   <label for="presentacion" class="form-label">Presentación:</label>
-  <select name="presentacion" id="presentacion" class="form-control">
+  <select name="presentacion" id="presentacion" class="form-control" asp-for="Encomienda.presentacion">
     <option value="">-</option>
     <option value="Sobre">Sobre</option>
     <option value="Caja">Caja</option>
     <option value="Guacal">Guacal</option>
   </select>
+  <span class="text-danger" asp-validation-for="Encomienda.descripcion"></span> <br>
   <hr>
   <button type="submit" class="btn btn-success">Enviar</button>
 </form>

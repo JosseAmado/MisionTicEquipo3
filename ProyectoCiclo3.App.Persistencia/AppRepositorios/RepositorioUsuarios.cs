@@ -6,31 +6,50 @@ using System;
 namespace ProyectoCiclo3.App.Persistencia.AppRepositorios
 {
     public class RepositorioUsuarios
-    {
-        List<Usuario> usuarios;
- 
-        public RepositorioUsuarios()
-        {
-            usuarios= new List<Usuario>()
+    { 
+        
+        private readonly AppContext _appContext = new AppContext();   
 
-
-            {
-                new Usuario{id=1,nombre="camila",apellidos= "vasquez",direccion= "calle20",telefono= "312890",ciudad= "cali"},
-                new Usuario{id=2,nombre="pedro",apellidos= "perez",direccion= "calle30",telefono= "312890",ciudad= "cali"},
-                new Usuario{id=3,nombre="maia",apellidos= "montes",direccion= "calle70",telefono= "312890",ciudad= "cali"}
-            };
-
-           
-        }
- 
         public IEnumerable<Usuario> GetAll()
         {
-            return usuarios;
+           return _appContext.Usuarios;
         }
  
         public Usuario GetWithId(int id){
-            return usuarios.SingleOrDefault(u => u.id == id);
+            return _appContext.Usuarios.Find(id);
         }
+
+        // public Usuario Update(Usuario newUsuario){
+        //     var encomienda = _appContext.Usuarios.Find(newUsuario.id);
+        //     if(encomienda != null){
+        //         encomienda.descripcion = newUsuario.descripcion;
+        //         encomienda.peso = newUsuario.peso;
+        //         encomienda.tipo = newUsuario.tipo;
+        //         encomienda.presentacion = newUsuario.presentacion;
+        //         //Guardar en base de datos
+        //          _appContext.SaveChanges();
+        //     }
+        // return encomienda;
+        // }
+
+        // public Usuario Create(Usuario newUsuario)
+        // {
+        //    var addUsuario = _appContext.Usuarios.Add(newUsuario);
+        //     //Guardar en base de datos
+        //     _appContext.SaveChanges();
+        //     return addUsuario.Entity;
+        // }
+
+        // public Usuario Delete(int id)
+        // {
+        //     var encomienda = _appContext.Usuarios.Find(id);
+        // if (encomienda != null){
+        //     _appContext.Usuarios.Remove(encomienda);
+        //     //Guardar en base de datos
+        //     _appContext.SaveChanges();
+        // }
+        //  return null;  
+        // }
+
     }
 }
-   
