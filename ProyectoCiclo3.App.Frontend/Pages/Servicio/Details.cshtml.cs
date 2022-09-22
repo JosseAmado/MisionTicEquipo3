@@ -6,12 +6,14 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ProyectoCiclo3.App.Persistencia.AppRepositorios;
 using ProyectoCiclo3.App.Dominio;
+using Microsoft.AspNetCore.Authorization;
  
 namespace ProyectoCiclo3.App.Frontend.Pages
 {
+    [Authorize]
     public class DetailsServicioModel : PageModel
     {
-       private readonly RepositorioServicios repositorioServicios;
+        private readonly RepositorioServicios repositorioServicios;
         public Servicio Servicio {get;set;}
  
         public DetailsServicioModel(RepositorioServicios repositorioServicios)
