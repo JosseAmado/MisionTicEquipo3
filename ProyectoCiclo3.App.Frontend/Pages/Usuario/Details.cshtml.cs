@@ -10,9 +10,9 @@ using Microsoft.AspNetCore.Authorization;
  
 namespace ProyectoCiclo3.App.Frontend.Pages
 {
+    [Authorize]
     public class DetailsUsuarioModel : PageModel
     {
-        [Authorize]
        private readonly RepositorioUsuarios repositorioUsuarios;
         public Usuario Usuario {get;set;}
  

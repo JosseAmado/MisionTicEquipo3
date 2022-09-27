@@ -26,6 +26,7 @@ namespace ProyectoCiclo3.App.Persistencia.AppRepositorios
                 usuario.apellidos = newUsuario.apellidos;
                 usuario.direccion = newUsuario.direccion;
                 usuario.telefono = newUsuario.telefono;
+                usuario.ciudad = newUsuario.ciudad;
                 //Guardar en base de datos
                  _appContext.SaveChanges();
             }
@@ -40,15 +41,23 @@ namespace ProyectoCiclo3.App.Persistencia.AppRepositorios
             return addUsuario.Entity;
         }
 
-        public Usuario Delete(int id)
+        public  bool Delete(int id)
         {
-            var usuario = _appContext.Usuarios.Find(id);
-        if (usuario != null){
-            _appContext.Usuarios.Remove(usuario);
-            //Guardar en base de datos
-            _appContext.SaveChanges();
-        }
-         return null;  
+        
+            try{
+                var usuario = _appContext.Usuarios.Find(id);
+                if (usuario != null){
+                    _appContext.Usuarios.Remove(usuario);
+                    //Guardar en base de datos
+                    _appContext.SaveChanges();
+                }
+
+                return false;
+
+            }catch(Exception e){
+                
+                return true;                  
+            }
         }
 
     }

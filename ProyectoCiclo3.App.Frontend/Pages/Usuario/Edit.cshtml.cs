@@ -24,9 +24,10 @@ namespace ProyectoCiclo3.App.Frontend.Pages
  
         public IActionResult OnGet(int usuarioId)
         {
-            Usuario = repositorioUsuarios.GetWithId(usuarioId);
-            return Page();
+            Usuario=repositorioUsuarios.GetWithId(usuarioId);
+            return Page(); 
         }
+
         public IActionResult OnPost()
         {
             if(!ModelState.IsValid)
@@ -35,7 +36,7 @@ namespace ProyectoCiclo3.App.Frontend.Pages
             }
             if(Usuario.id>0)
             {
-              Usuario = repositorioUsuarios.Update(Usuario);
+             Usuario = repositorioUsuarios.Update(Usuario);
             }
             return RedirectToPage("./List");
         }

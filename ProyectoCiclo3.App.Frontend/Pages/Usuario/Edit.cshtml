@@ -4,37 +4,19 @@
     var usuario = Model.Usuario;
 }
  
-<div class="text-center">
-<form method="POST">
-<label for="nombre" class="form-label">nombre:</label>
-   <input type="number" class="form-control d-none" id="id" name="id" placeholder="id" readonly asp-for="@usuario.id">
-  <input type="text" class="form-control" id="nombre" name="nombre" placeholder="nombre" required minlength="2" asp-for="@usuario.nombre">
-  <label for="apellidos" class="form-label">apellidos:</label>
-  <input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="apellidos" required minlength="2" asp-for="@usuario.apellidos">
-  <label for="direccion" class="form-label">direccion:</label>
-  <input type="text" class="form-control" id="direccion" name="direccion" placeholder="direccion" required minlength="5" asp-for="@usuario.direccion">
-  <label for="telefono" class="form-label">telefono:</label>
-  <input type="text" class="form-control" id="telefono" name="telefono" placeholder="telefono" required minlength="7" asp-for="@usuario.telefono">
-  <label for="ciudad" class="form-label">ciudad:</label>
-  <select name="ciudad" id="ciudad" class="form-control" asp-validation-for="@usuario.ciudad">
-    
-    <option value="Bogota">Bogota</option>
-    <option value="Tunja">Tunja</option>
-    <option value="Cartagena">Cartagena</option>
-    <option value="Medellin">Medellin</option>
-    <option value="Armenia">Armenia</option>
-    <option value="Cali">Cali</option>
-    <option value="Arauca">Arauca</option>
-    <option value="Leticia">Leticia</option>
-    <option value="Barranquilla">Barranquilla</option>
-    <option value="Valledupar">Valledupar</option>
-    <option value="Monteria">Monteria</option>
-    <option value="Pasto">Pasto</option>
-    <option value="Bucaramanga">Bucaramanga</option>
-    <option value="Manizales">Manizales</option>
-    <option value="Santa Marta">Santa Marta</option>
-    <option value="Pereira">Pereira</option>
-  </select>
+<div class = "text-center">
+<form method = "POST">
+  <input type="number" class="form-control d-none" id="id" name="id" placeholder="id" asp-for="@usuario.id" readonly>
+  <label for="nombre" class="form-label">Nombre:</label>
+  <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" asp-for="@usuario.nombre">
+  <label for="apellidos" class="form-label">Apellidos:</label>
+  <input type="text" class="form-control" id="apellidos" name="apellidos" placeholder="Apellidos" asp-for="@usuario.apellidos">
+  <label for="direccion" class="form-label">Direccion:</label>
+  <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Direccion" asp-for="@usuario.direccion">
+  <label for="telefono" class="form-label">Telefono:</label>
+  <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Telefono" asp-for="@usuario.telefono">
+  <label for="ciudad" class="form-label">Ciudad:</label>
+  <input type="text" class="form-control" id="ciudad" name="ciudad" placeholder="Ciudad" asp-for="@usuario.ciudad">
   <hr>
   <button type="submit" class="btn btn-success">Actualizar</button>
 </form>
